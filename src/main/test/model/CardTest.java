@@ -18,4 +18,11 @@ public class CardTest {
         card.setStatus(CardStatus.INACTIVE);
         Assert.assertEquals(CardStatus.ACTIVE,card.getStatus());
     }
+    @Test
+    public void onceCLOSEDaCardStatusCannotBeChangedAgain(){
+        Card card = new Card();
+        card.setStatus(CardStatus.CLOSED);
+        card.setStatus(CardStatus.ACTIVE);
+        Assert.assertEquals(CardStatus.CLOSED,card.getStatus());
+    }
 }

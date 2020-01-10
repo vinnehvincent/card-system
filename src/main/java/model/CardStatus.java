@@ -1,5 +1,5 @@
 package model;
 
 public enum CardStatus {
-    ACTIVE, INACTIVE
+    ACTIVE, CLOSED, INACTIVE
 }

@@ -11,4 +11,11 @@ public class CardTest {
         Card card = new Card();
         Assert.assertEquals(CardStatus.INACTIVE, card.getStatus());
     }
+    @Test
+    public void onceActivatedACardWillNeverBeSetToInactiveAgain(){
+        Card card = new Card();
+        card.setStatus(CardStatus.ACTIVE);
+        card.setStatus(CardStatus.INACTIVE);
+        Assert.assertEquals(CardStatus.ACTIVE,card.getStatus());
+    }
 }

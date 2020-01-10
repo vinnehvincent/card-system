@@ -6,4 +6,10 @@ public class Card {
     public CardStatus getStatus() {
         return this.status;
     }
+
+    public void setStatus(CardStatus status) {
+        if((this.status == CardStatus.ACTIVE) && status == CardStatus.INACTIVE)
+            return;
+        this.status = status;
+    }
 }

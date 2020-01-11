@@ -46,11 +46,11 @@ public class Card {
         return calendar.getTime();
     }
 
-    public void setStatus(CardStatus status) {
+    public void setStatus(CardStatus status) throws Exception {
         if (this.status == CLOSED)
-            return;
+            throw new Exception("An closed card cannot be made active");
         if((this.status == ACTIVE) && status == INACTIVE)
-            return;
+            throw new Exception("An active card cannot be made inactive");
         if(status == ACTIVE)
            this.activatedDate = new Date();
         this.status = status;

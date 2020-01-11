@@ -1,7 +1,24 @@
 package model;
 
+import java.util.Random;
+
 public class Card {
-    private CardStatus status = CardStatus.INACTIVE;
+    private String cardNumber;
+    private CardStatus status;
+
+    public Card() {
+        this.cardNumber = generateCardNumber();
+        this.status = CardStatus.INACTIVE;
+    }
+
+    private static String generateCardNumber() {
+        Random random = new Random();
+        StringBuilder sb = new StringBuilder();
+        for(int i = 0; i < 4; i++) {
+            sb.append(random.nextInt(9000)+1000);
+        }
+        return  sb.toString() ;
+    }
 
     public CardStatus getStatus() {
         return this.status;
@@ -14,4 +31,9 @@ public class Card {
             return;
         this.status = status;
     }
+
+    public String getCardNumber() {
+        return this.cardNumber;
+    }
+
 }

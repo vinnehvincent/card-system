@@ -1,28 +1,33 @@
 package model;
 
-import org.junit.Assert;
 import org.junit.Test;
 
 import static model.CardStatus.*;
+import static org.junit.Assert.assertEquals;
 
 public class CardTest {
     @Test
     public void aNewCardMustBeInactive(){
         Card card = new Card();
-        Assert.assertEquals(INACTIVE, card.getStatus());
+        assertEquals(INACTIVE, card.getStatus());
     }
     @Test
     public void onceActivatedACardWillNeverBeSetToInactiveAgain(){
         Card card = new Card();
         card.setStatus(ACTIVE);
         card.setStatus(INACTIVE);
-        Assert.assertEquals(ACTIVE,card.getStatus());
+        assertEquals(ACTIVE,card.getStatus());
     }
     @Test
     public void onceCLOSEDaCardStatusCannotBeChangedAgain(){
         Card card = new Card();
         card.setStatus(CLOSED);
         card.setStatus(ACTIVE);
-        Assert.assertEquals(CLOSED,card.getStatus());
+        assertEquals(CLOSED,card.getStatus());
+    }
+    @Test
+    public void cardNumberMustBeA16DigitNumber(){
+        Card card = new Card();
+        assertEquals(16,String.valueOf(card.getCardNumber()).length());
     }
 }

@@ -6,9 +6,9 @@ import static org.junit.Assert.*;
 
 public class CardHolderTest {
     @Test
-    public void aCardHolderMustAlwaysBelinkedToACard(){
+    public void aCardHolderMustAlwaysBeLinkedToACard(){
         CardHolder cardHolder = new CardHolder();
-        assertTrue(cardHolder.getCards().size() > 0);
+        assertEquals(1, cardHolder.getCards().size());
     }
     @Test(expected = Exception.class)
     public void aCardHolderCannotHaveNoMoreThan1PrimaryCardAnd6SecondaryCards() throws Exception {

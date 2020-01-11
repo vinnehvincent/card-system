@@ -1,14 +1,26 @@
 package model;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Random;
 
 public class Card {
-    private String cardNumber;
+
+
+    private final String cardNumber;
     private CardStatus status;
+    private final Date activatedDate;
+    private final Date expiryDate;
+    private final double availableBalance;
+    private final double actualBalance;
 
     public Card() {
         this.cardNumber = generateCardNumber();
         this.status = CardStatus.INACTIVE;
+        this.activatedDate = new Date();
+        this.expiryDate = addFiveYearsToDate(this.activatedDate);
+        this.actualBalance = 0.0;
+        this.availableBalance = 0.0;
     }
 
     private static String generateCardNumber() {
@@ -18,6 +30,13 @@ public class Card {
             sb.append(random.nextInt(9000)+1000);
         }
         return  sb.toString() ;
+    }
+
+    private Date addFiveYearsToDate(Date date) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        calendar.add(Calendar.YEAR, 5);
+        return calendar.getTime();
     }
 
     public CardStatus getStatus() {
@@ -36,4 +55,7 @@ public class Card {
         return this.cardNumber;
     }
 
+    public Date getExpiryDate() {
+        return this.expiryDate;
+    }
 }

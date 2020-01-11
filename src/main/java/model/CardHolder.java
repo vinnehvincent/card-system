@@ -21,9 +21,9 @@ public class CardHolder {
         return this.cards;
     }
 
-    public void addSecondaryCard() {
+    public void addSecondaryCard() throws Exception {
         if(getSecondaryCards().size() >= 6)
-            return;
+            throw new Exception("A card holder cannot have more than 6 secondary cards");
         Card card = new Card();
         card.setPrimarySecondaryIndicator(false);
         cards.add(card);

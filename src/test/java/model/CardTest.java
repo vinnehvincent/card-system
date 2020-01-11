@@ -2,8 +2,6 @@ package model;
 
 import org.junit.Test;
 
-import java.util.Date;
-
 import static model.CardStatus.*;
 import static org.junit.Assert.assertEquals;
 
@@ -35,6 +33,6 @@ public class CardTest {
     @Test
     public void cardExpiresAfter5years(){
         //Assumption I am making...as expiry date isn't specified in the requirements
-        assertEquals(new Date().getYear() + 5, card.getExpiryDate().getYear());
+        assertEquals(card.getCreatedDate().getYear() + 5, card.getExpiryDate().getYear());
     }
 }

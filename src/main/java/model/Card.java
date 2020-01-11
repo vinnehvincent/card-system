@@ -4,21 +4,24 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Random;
 
+import static model.CardStatus.*;
+
 public class Card {
 
 
     private final String cardNumber;
     private CardStatus status;
-    private final Date activatedDate;
+    private final Date createdDate;
     private final Date expiryDate;
     private final double availableBalance;
     private final double actualBalance;
+    private Date activatedDate;
 
     public Card() {
         this.cardNumber = generateCardNumber();
-        this.status = CardStatus.INACTIVE;
-        this.activatedDate = new Date();
-        this.expiryDate = addFiveYearsToDate(this.activatedDate);
+        this.status = INACTIVE;
+        this.createdDate = new Date();
+        this.expiryDate = addFiveYearsToDate(this.createdDate);
         this.actualBalance = 0.0;
         this.availableBalance = 0.0;
     }
@@ -44,10 +47,12 @@ public class Card {
     }
 
     public void setStatus(CardStatus status) {
-        if (this.status == CardStatus.CLOSED)
+        if (this.status == CLOSED)
             return;
-        if((this.status == CardStatus.ACTIVE) && status == CardStatus.INACTIVE)
+        if((this.status == ACTIVE) && status == INACTIVE)
             return;
+        if(status == ACTIVE)
+           this.activatedDate = new Date();
         this.status = status;
     }
 

@@ -21,9 +21,10 @@ public class CardHolder {
         return this.cards;
     }
 
-    public void addSecondaryCard(Card card) {
+    public void addSecondaryCard() {
         if(getSecondaryCards().size() >= 6)
             return;
+        Card card = new Card();
         card.setPrimarySecondaryIndicator(false);
         cards.add(card);
 

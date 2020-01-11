@@ -13,9 +13,13 @@ public class Card {
     private CardStatus status;
     private final Date createdDate;
     private final Date expiryDate;
-    private final double availableBalance;
-    private final double actualBalance;
+    private double availableBalance;
+
+    private double actualBalance;
+
     private Date activatedDate;
+    private boolean primarySecondaryIndicator;
+
 
     public Card() {
         this.cardNumber = generateCardNumber();
@@ -42,10 +46,6 @@ public class Card {
         return calendar.getTime();
     }
 
-    public CardStatus getStatus() {
-        return this.status;
-    }
-
     public void setStatus(CardStatus status) {
         if (this.status == CLOSED)
             return;
@@ -56,11 +56,47 @@ public class Card {
         this.status = status;
     }
 
+    public void setPrimarySecondaryIndicator(boolean primarySecondaryIndicator) {
+        this.primarySecondaryIndicator = primarySecondaryIndicator;
+    }
+
+    public void setAvailableBalance(double availableBalance) {
+        this.availableBalance = availableBalance;
+    }
+
+    public void setActualBalance(double actualBalance) {
+        this.actualBalance = actualBalance;
+    }
+
+    public CardStatus getStatus() {
+        return this.status;
+    }
+
     public String getCardNumber() {
         return this.cardNumber;
     }
 
     public Date getExpiryDate() {
         return this.expiryDate;
+    }
+
+    public Date getCreatedDate() {
+        return createdDate;
+    }
+
+    public double getAvailableBalance() {
+        return availableBalance;
+    }
+
+    public double getActualBalance() {
+        return actualBalance;
+    }
+
+    public Date getActivatedDate() {
+        return activatedDate;
+    }
+
+    public boolean getPrimarySecondaryIndicator() {
+        return primarySecondaryIndicator;
     }
 }

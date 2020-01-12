@@ -99,4 +99,8 @@ public class Card {
     public boolean getPrimarySecondaryIndicator() {
         return primarySecondaryIndicator;
     }
+
+    public Long getId() {
+        return null;
+    }
 }

@@ -1,24 +1,36 @@
 package model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Random;
 
 import static model.CardStatus.*;
-
+@Entity
+@Table(name="CARDS")
 public class Card {
 
-
+    @Id
+    private Integer Id;
+    @Column(name="card_number",unique = true)
     private final String cardNumber;
     private CardStatus status;
+    @Column(name="created_date")
     private final Date createdDate;
+    @Column(name="expiry_date")
     private final Date expiryDate;
+    @Column(name="available_balance")
     private double availableBalance;
-
+    @Column(name="actual_balance")
     private double actualBalance;
-
+    @Column(name="activated_date")
     private Date activatedDate;
+    @Column(name="primary_secondary_indicator")
     private boolean primarySecondaryIndicator;
+
 
 
     public Card() {
@@ -100,7 +112,7 @@ public class Card {
         return primarySecondaryIndicator;
     }
 
-    public Long getId() {
-        return null;
+    public Integer getId() {
+        return this.Id;
     }
 }

@@ -1,13 +1,25 @@
 package model;
 
+import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
-
+@Entity
+@Table(name="CARDHOLDERS")
 public class CardHolder {
 
-    private List<Card> cards = new ArrayList<>();
+    @Id
+    @Column(name="identity_number",unique = true)
     private String govId;
+
+    private String title;
+    private String name;
+    private String surname;
+    @Column(name="date_of_birth")
+    private Date dateOfBirth;
+    @OneToMany(cascade = CascadeType.PERSIST)
+    private List<Card> cards = new ArrayList<>();
 
     public CardHolder(){
         addPrimaryCard();

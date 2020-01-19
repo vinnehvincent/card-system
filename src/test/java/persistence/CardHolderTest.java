@@ -3,6 +3,7 @@ package persistence;
 import model.CardHolder;
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 public class CardHolderTest {
@@ -13,5 +14,6 @@ public class CardHolderTest {
         cardHolderDao.save(cardHolder);
         CardHolder persistedCardHolder = cardHolderDao.getCardHolderByID(cardHolder.getId());
         assertNotNull(persistedCardHolder);
+        assertEquals(1, persistedCardHolder.getCards().size());
     }
 }

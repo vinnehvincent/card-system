@@ -7,6 +7,8 @@ import java.util.stream.Collectors;
 public class CardHolder {
 
     private List<Card> cards = new ArrayList<>();
+    private String govId;
+
     public CardHolder(){
         addPrimaryCard();
     }
@@ -42,5 +44,9 @@ public class CardHolder {
         List<Card> secondaryCards = cards.stream().filter(card -> !card.getPrimarySecondaryIndicator())
                 .collect(Collectors.toList());
         return secondaryCards;
+    }
+
+    public String getId() {
+        return govId;
     }
 }

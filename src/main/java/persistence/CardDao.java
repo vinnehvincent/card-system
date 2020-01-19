@@ -2,10 +2,7 @@ package persistence;
 
 import model.Card;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
+import javax.persistence.*;
 
 public class CardDao {
     EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("card-system");
@@ -19,7 +16,8 @@ public class CardDao {
     }
 
     public Card get(String cardNumber) {
-        return null;
-
+        Query query = entityManager.createQuery("SELECT c FROM Card c WHERE c.cardNumber = :cardNumber");
+        query.setParameter("cardNumber",cardNumber);
+        return (Card) query.getSingleResult();
     }
 }

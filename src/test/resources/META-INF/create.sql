@@ -1,0 +1,37 @@
+--CREATE TYPE CARD_STATUS AS ENUM('INACTIVE','ACTIVE','LOST','STOLEN','CLOSED');
+--CREATE TABLE CARDS(
+--    ID INT PRIMARY KEY,
+--    ACTIVATED_DATE DATE,
+--    ACTUAL_BALANCE NUMERIC(20,2),
+--    AVAILABLE_BALANCE NUMERIC(20,2),
+--    CARD_NUMBER CHAR(16) UNIQUE,
+--    CREATED_DATE DATE,
+--    EXPIRY_DATE DATE,
+--    PRIMARY_SECONDARY_INDICATOR BOOLEAN,
+--    STATUS CARD_STATUS
+--);
+----INSERT INTO CARDS(ID,ACTIVATED_DATE,ACTUAL_BALANCE,AVAILABLE_BALANCE,CARD_NUMBER,CREATED_DATE,EXPIRY_DATE,PRIMARY_SECONDARY_INDICATOR)
+----          VALUES (3,'2019-05-27',200.02, 157.12,'1234123412341235', '2019-05-27','2024-05-27',TRUE);
+--
+--
+--
+--
+----DROP TABLE CARDS;QQ
+--Table: public.cards
+--
+--DROP TABLE public.cards
+--
+--CREATE TABLE public.cards
+--(
+--  id integer NOT NULL,
+--  activated_date date,
+--  actual_balance numeric(20,2),
+--  available_balance numeric(20,2),
+--  card_number character(16),
+--  created_date date,
+--  expiry_date date,
+--  primary_secondary_indicator boolean,
+--  status card_status,
+--  CONSTRAINT cards_pkey PRIMARY KEY,
+--  CONSTRAINT cards_card_number_key UNIQUE
+--);

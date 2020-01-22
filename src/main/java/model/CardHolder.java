@@ -20,8 +20,13 @@ public class CardHolder {
     private Date dateOfBirth;
     @OneToMany(cascade = CascadeType.PERSIST)
     private List<Card> cards = new ArrayList<>();
-
-    public CardHolder(){
+    public CardHolder(){}
+    public CardHolder(String govid, String title, String name, String surname, Date dateOfBirth){
+        this.govId = govid;
+        this.title = title;
+        this.name = name;
+        this.surname = surname;
+        this.dateOfBirth = dateOfBirth;
         addPrimaryCard();
     }
 

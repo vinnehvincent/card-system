@@ -45,11 +45,9 @@ public class CardHolder {
     }
 
     public Card getPrimaryCard() {
-        List<Card> primaryCards = cards.stream().filter(card -> card.getPrimarySecondaryIndicator())
-                .collect(Collectors.toList());
-        assert primaryCards.size() == 1;
-        final Card card = primaryCards.get(0);
-        return card;
+        final Card primaryCard = cards.stream().filter(card -> card.getPrimarySecondaryIndicator())
+                .findAny().orElse(null);
+        return primaryCard;
     }
 
     public List<Card> getSecondaryCards() {

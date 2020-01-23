@@ -1,8 +1,10 @@
 package persistence;
 
 import model.CardHolder;
+import org.junit.After;
 import org.junit.Test;
 
+import java.sql.*;
 import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
@@ -17,5 +19,11 @@ public class CardHolderTest {
         CardHolder persistedCardHolder = cardHolderDao.getCardHolderByID(cardHolder.getId());
         assertNotNull(persistedCardHolder);
         assertEquals(1, persistedCardHolder.getCards().size());
+    }
+    @After
+    public void teardown() throws SQLException {
+        Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres","postgres","admin");
+        Statement statement = connection.createStatement();
+        statement.execute("DELETE FROM PUBLIC.CARDHOLDERS");
     }
 }

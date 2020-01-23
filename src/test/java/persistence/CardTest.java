@@ -4,6 +4,11 @@ import model.Card;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 public class CardTest {
     @Test
     public void shouldPersistNewCard(){
@@ -12,5 +17,11 @@ public class CardTest {
         cardDao.save(card);
         Card persistedCard = cardDao.get(card.getCardNumber());
         Assert.assertNotNull(persistedCard.getId());
+    }
+    @Test
+    public void teardown() throws SQLException {
+        Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres","postgres","admin");
+        Statement statement = connection.createStatement();
+        statement.execute("DELETE FROM PUBLIC.CARDS");
     }
 }

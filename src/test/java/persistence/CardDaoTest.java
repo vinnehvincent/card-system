@@ -9,7 +9,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class CardTest {
+public class CardDaoTest {
     @Test
     public void shouldPersistNewCard(){
         Card card = new Card();

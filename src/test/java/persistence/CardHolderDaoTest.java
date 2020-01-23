@@ -10,7 +10,7 @@ import java.util.Date;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-public class CardHolderTest {
+public class CardHolderDaoTest {
     @Test
     public void shouldPersistCardHolder() {
         CardHolder cardHolder = new CardHolder("9005273445080","Mr","Vinneh","da Vinci",new Date());

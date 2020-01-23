@@ -18,7 +18,8 @@ public class CardHolder {
     private String surname;
     @Column(name="date_of_birth")
     private Date dateOfBirth;
-    @OneToMany(cascade = CascadeType.PERSIST)
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name="Id")
     private List<Card> cards = new ArrayList<>();
     public CardHolder(){}
     public CardHolder(String govid, String title, String name, String surname, Date dateOfBirth){

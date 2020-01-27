@@ -14,7 +14,8 @@ public class CardHolder {
     private String govId;
 
     private String title;
-    private String name;
+    @Column(name = "first_name")
+    private String firstName;
     private String surname;
     @Column(name="date_of_birth")
     private Date dateOfBirth;
@@ -25,7 +26,7 @@ public class CardHolder {
     public CardHolder(String govid, String title, String name, String surname, Date dateOfBirth){
         this.govId = govid;
         this.title = title;
-        this.name = name;
+        this.firstName = name;
         this.surname = surname;
         this.dateOfBirth = dateOfBirth;
         addPrimaryCard();

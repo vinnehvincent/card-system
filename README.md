@@ -31,7 +31,7 @@ Having installed the prerequisites, do the following:
 
 Create a database called "postgres", connect to the the database and run the following command: 
 ```
-postgres=# \i /home/vinneh/Dev/Java/card-system/src/test/resources/META-INF/create.sql
+postgres=# \i <path-to-folder>/resources/META-INF/create.sql
 ```
 this should create the necessary tables required for the system to run. 
 

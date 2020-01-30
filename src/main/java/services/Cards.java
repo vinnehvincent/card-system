@@ -16,7 +16,7 @@ public class Cards {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response ping(){
-        return Response.ok().entity("Service is up").build();
+        return Response.ok().entity("Service is up!").build();
     }
     @Path("/create")
     @GET

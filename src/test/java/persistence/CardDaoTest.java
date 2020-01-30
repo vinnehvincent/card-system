@@ -22,6 +22,7 @@ public class CardDaoTest {
     public void teardown() throws SQLException {
         Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres","postgres","admin");
         Statement statement = connection.createStatement();
-        statement.execute("DELETE FROM PUBLIC.CARDS");
+        statement.execute("DELETE FROM CARDS");
+        connection.close();
     }
 }

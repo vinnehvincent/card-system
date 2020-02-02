@@ -1,6 +1,7 @@
 package persistence;
 
 import model.Card;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -18,7 +19,7 @@ public class CardDaoTest {
         Card persistedCard = cardDao.get(card.getCardNumber());
         Assert.assertNotNull(persistedCard.getId());
     }
-    @Test
+    @After
     public void teardown() throws SQLException {
         Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres","postgres","admin");
         Statement statement = connection.createStatement();
